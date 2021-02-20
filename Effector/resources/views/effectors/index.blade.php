@@ -15,6 +15,21 @@
             </div>
         </div>
     </div>
+    @foreach ($effectors as $eff)
+        <div class="col-md4">
+            <div class="card">
+                <div class="card-body">
+                    @if(!empty($eff->image))
+                        <div class="image-wrapper"><img src="{{ asset('storage/images/'.$eff->image) }}"></div>
+                    @else
+                        <div class="image-wrapper"><p>imgなし<p></div>
+                    @endif
+                    <h3 class="h3 effector-title">{{ $eff->name }}</h3>
+                    <a href="" class="btn btn-secondary detail-btn">詳細を読む</a>
+                </div>
+            </div>
+        </div>
+    @endforeach
 </div>
 
 @endsection

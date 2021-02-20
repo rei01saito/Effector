@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('css')
 </head>
 <body>
     <div id="app">
@@ -39,6 +40,9 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item">
+                            <a href="{{ route('create') }}" class="nav-link">機材を登録する</a>
+                        </li>
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">

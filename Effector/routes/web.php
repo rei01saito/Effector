@@ -14,12 +14,19 @@ use App\Http\Controllers\EffectorController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('index', [EffectorController::class, 'index'])->name('index');
+//Effector
+Route::get('/', [EffectorController::class, 'index'])->name('index');
+
+Route::group(['middleware'=>'auth'], function() {
+    Route::get('create', [EffectorController::class, 'create'])->name('create');
+});
+
+Route::post('store', [EffectorController::class, 'store'])->name('store');
