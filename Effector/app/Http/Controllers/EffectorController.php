@@ -22,9 +22,10 @@ class EffectorController extends Controller
     {
         $post = $request->all();
 
+        //Validation
         $validateData = $request->validate([
             'name' => 'required',
-            'image' => 'mimes:jpeg,png,jpg|max:2048',
+            'image' => 'mimes:jpeg,png,jpg|max:2048|dimensions:width=320,height=240',
         ]);
 
         if($request->hasFile('image')) {

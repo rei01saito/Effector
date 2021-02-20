@@ -15,8 +15,11 @@
             </div>
         </div>
     </div>
+</div>
+<div class="sample pt-3" style="text-align: center"><p>↑サンプルはこんな感じ</p></div>
+<div class="row justify-content-center pt-4">
     @foreach ($effectors as $eff)
-        <div class="col-md4">
+        <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
                     @if(!empty($eff->image))
