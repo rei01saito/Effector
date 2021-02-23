@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EffectorController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,12 @@ use App\Http\Controllers\UserController;
 
 // Users
 Auth::routes();
-Route::get('users/{id}', [UserController::class, 'show'])->name('users_show');
+Route::group(['middleware'=>'auth'], function() {
+    Route::get('users/{id}', [UserController::class, 'show'])->name('users_show');    
+});
 
-//Effector
+
+// Effector
 Route::get('/', [EffectorController::class, 'index'])->name('index');
 
 Route::group(['middleware'=>'auth'], function() {
@@ -31,3 +35,7 @@ Route::group(['middleware'=>'auth'], function() {
 });
 
 Route::post('store', [EffectorController::class, 'store'])->name('store');
+
+
+// Details
+Route::get('details/{id}', [DetailController::class, 'show'])->name('show');

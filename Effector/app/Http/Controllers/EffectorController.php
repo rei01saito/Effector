@@ -14,10 +14,12 @@ class EffectorController extends Controller
         // dd($effectors); //デバッグ用
         return view('effectors/index', compact('effectors'));
     }
+
     public function create()
     {
         return view('effectors/create');
     }
+
     public function store(Request $request)
     {
         $post = $request->all();
@@ -37,5 +39,10 @@ class EffectorController extends Controller
         }
         Effector::insert($data);
         return redirect('/');
+    }
+
+    public function show(Effector $effector) {
+        $test = $effector->name;
+        return($test);
     }
 }

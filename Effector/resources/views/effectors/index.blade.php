@@ -11,7 +11,7 @@
                 <p class='description'>
                     本来はここにエフェクターの種類をかく。
                 </p>
-                <a href="" class='btn btn-secondary detail-btn'>詳細を見る</a>
+                <button class='btn btn-secondary detail-btn'>詳細を見る</a>
             </div>
         </div>
     </div>
@@ -28,7 +28,12 @@
                         <div class="image-wrapper"><p>imgなし<p></div>
                     @endif
                     <h3 class="h3 effector-title">{{ $eff->name }}</h3>
-                    <a href="" class="btn btn-secondary detail-btn">詳細を読む</a>
+
+                    @if ($eff->detail_status === 1)
+                        <a href="{{ route('show', ['id' => $eff->id ]) }}" class="btn btn-secondary detail-btn">詳細を読む</a>
+                    @else
+                        <a href="#" class="btn btn-secondary">詳細を追加する</a>
+                    @endif
                 </div>
             </div>
         </div>
