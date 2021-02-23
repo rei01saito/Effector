@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EffectorController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,9 @@ use App\Http\Controllers\EffectorController;
 //     return view('welcome');
 // });
 
+// Users
 Auth::routes();
-
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('users/{id}', [UserController::class, 'show'])->name('users_show');
 
 //Effector
 Route::get('/', [EffectorController::class, 'index'])->name('index');

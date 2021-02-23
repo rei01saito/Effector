@@ -67,6 +67,7 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    <a class="dropdown-item" href="users/{{ Auth::user()->id }}">Myページ</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -83,7 +84,7 @@
             @yield('content')
         </main>
         <footer class='footer'>
-            <small class='copyright'>Laravel Book Reviews 2021 copyright</small>
+            <small class='copyright'>Laravel Effector 2021 copyright</small>
         </footer>
     </div>
 </body>
