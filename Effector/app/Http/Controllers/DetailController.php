@@ -28,4 +28,9 @@ class DetailController extends Controller
         $effector->save();
         return redirect()->action([DetailController::class, 'show'], compact('id'));
     }
+    public function edit($id)
+    {
+        $details = Detail::where('effector_id', $id)->get();
+        return view('details.edit', compact('details'));
+    }
 }

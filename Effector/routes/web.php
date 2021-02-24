@@ -41,3 +41,4 @@ Route::post('store', [EffectorController::class, 'store'])->name('store');
 Route::get('details/{id}', [DetailController::class, 'show'])->name('show');
 Route::get('details_create/{id}', [DetailController::class, 'create'])->name('detail_create');
 Route::post('details_store', [DetailController::class, 'store'])->name('detail_store');
+Route::get('details_edit/{id}', [DetailController::class, 'edit'])->name('detail_edit');

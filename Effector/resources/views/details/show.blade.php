@@ -18,6 +18,7 @@
                                 <a href="#"></a>
                             @endforeach
                         <a href="{{ route('index') }}" class="btn btn-primary">機材一覧に戻る</a>
+                        <a href="{{ route('detail_edit', ['id'=>$details->effector_id]) }}" class="btn btn-secondary">編集する</a>
                     </div>
                 </div>
             </div>
