@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <form action="#" method="post">
+                <form action="{{ route('detail_store') }}" method="post">
                     @csrf
                     <div class="card">
                         <div class="card-body">
@@ -24,7 +24,7 @@
                                 <label>価格</label>
                                 <input type="number" class="form-control" name="price">                
                             </div>                    
-                                <input type="hidden" value="{{ $id }}">                        
+                                <input type="hidden" name="effector_id" value="{{ $id }}">                        
                             <input type="submit" value="詳細を追加する">                
                         </div>
                     </div>
