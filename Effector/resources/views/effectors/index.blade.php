@@ -32,7 +32,7 @@
                     @if ($eff->detail_status === 1)
                         <a href="{{ route('show', ['id' => $eff->id ]) }}" class="btn btn-secondary detail-btn">詳細を読む</a>
                     @else
-                        <a href="#" class="btn btn-secondary">詳細を追加する</a>
+                        <a href="{{ route('detail_create', ['id' => $eff->id ]) }}" class="btn btn-secondary">詳細を追加する</a>
                     @endif
                 </div>
             </div>

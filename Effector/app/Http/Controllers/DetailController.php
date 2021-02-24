@@ -7,9 +7,15 @@ use App\Models\Detail;
 
 class DetailController extends Controller
 {
-    public function show($id) {
+    public function show($id) 
+    {
         $details = Detail::where('effector_id', $id)->get();
         // dd($details);
-        return view('detail_show', compact('details'));
+        return view('details.show', compact('details'));
     }
+    public function create($id)
+    {
+        return view('details.create', compact('id'));
+    }
+
 }
