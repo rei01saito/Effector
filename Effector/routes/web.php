@@ -23,7 +23,8 @@ use App\Http\Controllers\DetailController;
 // Users
 Auth::routes();
 Route::group(['middleware'=>'auth'], function() {
-    Route::get('users/{id}', [UserController::class, 'show'])->name('users_show');    
+    Route::get('users/{id}', [UserController::class, 'show'])->name('users_show');
+    Route::get('edit/{id}', [UserController::class, 'edit'])->name('user_edit');
 });
 
 
