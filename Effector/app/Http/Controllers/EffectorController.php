@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Effector;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class EffectorController extends Controller
 {
@@ -27,11 +28,23 @@ class EffectorController extends Controller
         //Validation
         $validateData = $request->validate([
             'name' => 'required',
-            'image' => 'mimes:jpeg,png,jpg|max:2048|dimensions:width=320,height=240',
+            'image' => 'mimes:jpeg,png,jpg,webp|max:2048',// dimensions:width=320,height=240,
         ]);
 
         if($request->hasFile('image')) {
-            $request->file('image')->store('/public/images');
+            // $request->file('image')->store('/public/images');
+            try {
+                $file = $request->file('image');
+                $img = Image::make($file);
+                $img->resize(300, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $img->save($file);
+                $file->store('public/images');
+            } catch(Exception $e) {
+                echo '補足した例外: ', $e->getMessage(), "\n";
+            }
+
             $data = ['user_id'=>\Auth::id(), 'name'=>$post['name'],
             'image'=>$request->file('image')->hashName()];
         } else {
