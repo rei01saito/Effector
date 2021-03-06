@@ -20,6 +20,9 @@ class DetailController extends Controller
     }
     public function store(Request $request)
     {
+        $request->validate([
+            'type'=>'required|max:255',
+        ]);
         Detail::create(['type' => $request->type, 'memo' => $request->memo, 
             'brand' => $request->brand, 'price' => $request->price, 'effector_id' => $request->effector_id]);
         $id = $request->effector_id;

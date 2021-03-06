@@ -2,7 +2,19 @@
 
 @section('content')
 
-<div class="row justify-content-center container">
+<div class="row justify-content-center">
+@if ($errors->any())
+    <div class="alert alert-danger col-md-10">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+</div>
+
+<div class="row justify-content-center">
     <div class="col-md-10">
         <form action="{{ route('store') }}" method="post" enctype="multipart/form-data">
             @csrf
@@ -22,5 +34,4 @@
         </form>
     </div>
 </div>
-
 @endsection

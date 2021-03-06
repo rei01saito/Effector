@@ -17,15 +17,15 @@
     </div>
 </div>
 <div class="sample pt-3" style="text-align: center"><p>↑サンプルはこんな感じ</p></div>
-<div class="row justify-content-center pt-4">
+<div class="row justify-content-center row-eq-height pt-4">
     @foreach ($effectors as $eff)
-        <div class="col-md-4">
+        <div class="col-md-4 py-2">
             <div class="card">
                 <div class="card-body">
                     @if(!empty($eff->image))
                         <div class="image-wrapper"><img src="{{ asset('storage/images/'.$eff->image) }}"></div>
                     @else
-                        <div class="image-wrapper"><p>imgなし<p></div>
+                        <div class="image-wrapper"><p>imgなし</p></div>
                     @endif
                     <h3 class="h3 effector-title">{{ $eff->name }}</h3>
 

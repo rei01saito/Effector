@@ -36,7 +36,7 @@ class EffectorController extends Controller
             try {
                 $file = $request->file('image');
                 $img = Image::make($file);
-                $img->resize(300, null, function ($constraint) {
+                $img->resize(200, null, function ($constraint) {
                     $constraint->aspectRatio();
                 });
                 $img->save($file);
@@ -51,7 +51,7 @@ class EffectorController extends Controller
             $data = ['user_id'=>\Auth::id(), 'name'=>$post['name']];
         }
         Effector::insert($data);
-        return redirect('/');
+        return redirect('/')->with('flash_message', '投稿が完了しました');
     }
 
     public function show(Effector $effector) {
