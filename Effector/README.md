@@ -1,1 +1,0 @@
-![ER_Database](https://github.com/rei01saito/Effector/blob/images/Effector/ER_Database.png)
