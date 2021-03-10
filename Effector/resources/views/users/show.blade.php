@@ -13,7 +13,7 @@
                         @endif
                         
                 
-                        <h1 class="pt-4">Name: {{ $user->name }}</h1>
+                        <h1 class="pt-4">名前: {{ $user->name }}</h1>
                         <h2 class="pt-2">Email: {{ $user->email }}</h1>
                         <h2 class="pt-2">ID: {{ $user->id }}</h1>
                         <a href="{{ route('user_edit', ['id'=>$user->id]) }}">編集する</a>

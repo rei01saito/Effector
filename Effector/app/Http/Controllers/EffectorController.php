@@ -58,4 +58,8 @@ class EffectorController extends Controller
         $test = $effector->name;
         return($test);
     }
+
+    public function sample() {
+        return view('effectors/sample');
+    }
 }

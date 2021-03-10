@@ -25,11 +25,13 @@ Auth::routes();
 Route::group(['middleware'=>'auth'], function() {
     Route::get('users/{id}', [UserController::class, 'show'])->name('users_show');
     Route::get('edit/{id}', [UserController::class, 'edit'])->name('user_edit');
+    Route::post('users/{id}', [UserController::class, 'update'])->name('user_update');
 });
 
 
 // Effector
 Route::get('/', [EffectorController::class, 'index'])->name('index');
+Route::get('sample_detail', [EffectorController::class, 'sample'])->name('sample');
 
 Route::group(['middleware'=>'auth'], function() {
     // Effectors
@@ -41,6 +43,5 @@ Route::group(['middleware'=>'auth'], function() {
     Route::get('details_create/{id}', [DetailController::class, 'create'])->name('detail_create');
     Route::post('details_store', [DetailController::class, 'store'])->name('detail_store');
     Route::get('details_edit/{id}', [DetailController::class, 'edit'])->name('detail_edit');
-    
 });
 
