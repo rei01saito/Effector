@@ -18,7 +18,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     @yield('css')
 </head>
 <body>
@@ -26,7 +25,8 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{-- アプリ名変更のため {{ config('app.name', 'Laravel') }} --}}
+                    <h2>Guitarist Memo</h2>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -85,13 +85,16 @@
             @if (session('flash_message'))
                 <div class="flash_message bg-success text-center py-3 my-0 mb-3">
                     {{ session('flash_message') }}
-                </div>    
+                    <a href="{{ route('detail_create', ['id'=>$latest->id]) }}">続けて詳細を登録する</a>
+                </div>
             @endif
 
             @yield('content')
         </main>
         <footer class='footer'>
+            <div class="container">
             <small class='copyright'>Laravel Effector 2021 copyright</small>
+            </div>
         </footer>
     </div>
 </body>

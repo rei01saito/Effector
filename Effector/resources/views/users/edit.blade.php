@@ -14,11 +14,11 @@
                             </div>
                             <div class="form-group">
                                 <label>名前</label>
-                                <input type="text" class="form-control" name="name" placeholder="">
+                                <input type="text" class="form-control" name="name" value="{{ $user->name }}">
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="text" class="form-control" name="email" placeholder="">
+                                <input type="text" class="form-control" name="email" value="{{ $user->email }}">
                             </div>
                             <input type="hidden" name="id" value="{{$user->id}}">
                             <input type="submit" value="編集完了">

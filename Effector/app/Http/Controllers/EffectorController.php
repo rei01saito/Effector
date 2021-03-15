@@ -12,8 +12,9 @@ class EffectorController extends Controller
     public function index()
     {
         $effectors = Effector::where('status', 1)->orderBy('created_at', 'DESC')->get();
+        $latest = Effector::where('status', 1)->orderBy('created_at', 'DESC')->first();
         // dd($effectors); //デバッグ用
-        return view('effectors/index', compact('effectors'));
+        return view('effectors/index', compact('effectors', 'latest'));
     }
 
     public function create()

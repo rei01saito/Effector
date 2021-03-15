@@ -19,6 +19,13 @@ class UserController extends Controller
     }
     public function update(Request $request) {
         $post = $request->all();
+
+        $validateData = $request->validate([
+            'image' => 'mimes:jpeg,png,jpg,webp|max:2048',
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+
         if($request->hasFile('image')) {
             $file = $post->file('image');
             $file->store('public/images');
