@@ -33,17 +33,14 @@ class EffectorController extends Controller
 
         if($request->hasFile('image')) {
             // $request->file('image')->store('/public/images');
-            try {
-                $file = $request->file('image');
-                $img = Image::make($file);
-                $img->resize(200, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                });
-                $img->save($file);
-                $file->store('public/images');
-            } catch(Exception $e) {
-                echo '補足した例外: ', $e->getMessage(), "\n";
-            }
+
+            $file = $request->file('image');
+            $img = Image::make($file);
+            $img->resize(200, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save($file);
+            $file->store('public/images');
 
             $data = ['user_id'=>\Auth::id(), 'name'=>$post['name'],
             'image'=>$request->file('image')->hashName()];
