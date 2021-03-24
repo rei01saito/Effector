@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Effector;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -11,7 +12,8 @@ class EffectorController extends Controller
     //
     public function index()
     {
-        $effectors = Effector::where('status', 1)->orderBy('created_at', 'DESC')->get();
+        $id = Auth::id();
+        $effectors = Effector::where('user_id', $id)->where('status', 1)->orderBy('created_at', 'DESC')->get();
         $latest = Effector::where('status', 1)->orderBy('created_at', 'DESC')->first();
         // dd($effectors); //デバッグ用
         return view('effectors/index', compact('effectors', 'latest'));
