@@ -1,5 +1,5 @@
-# ギタリストのためのメモ帳（仮）
-最近ギターのエフェクターなどの機材に関して見返せるものがあるといいなと思い、laravelの勉強も兼ねて作成中です。
+# Guitarist Memo
+最近ギターのエフェクターなどの機材に関して見返せるものがあるといいなと思い、laravelの勉強も兼ねて作成しております。
 自分のよく使っている機材情報を登録していつでも見れるようにできるといったアプリです。
 
 ## 使用技術
@@ -17,3 +17,6 @@
 
 ## データベース図
 ![ER_Database](https://github.com/rei01saito/Effector/blob/images/Effector/ER_Database.png)
+
+## URL
+http://salty-temple-61035.herokuapp.com/
