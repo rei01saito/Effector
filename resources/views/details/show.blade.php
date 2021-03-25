@@ -11,7 +11,7 @@
                             @foreach ($details as $details)
                                 <li>{{ $details->type }}</li>
                                 <li>{{ $details->brand }}</li>
-                                <li>{{ $details->price }}</li>
+                                <li>{{ $details->price }}円</li>
                                 <li>{{ $details->memo }}</li>
                                 <li>{{ $details->updated_at }}</li>
                         </ul>

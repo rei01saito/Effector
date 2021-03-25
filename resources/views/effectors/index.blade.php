@@ -29,6 +29,17 @@
                         <h5>登録はこちらから</h5>
                     </div>
                     <div class="to_register pt-2"><a href="{{ route('register') }}" class="btn btn-primary">{{ __('Register') }}</a></div>
+                    <div class="border-bottom border-dark pt-3">
+                        <h5>お試しログインはこちら</h5>
+                    </div>
+                    <div class="to_login pt-2">
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <input type="hidden" name="email" value="TestUser@mail.com">
+                            <input type="hidden" name="password" value="password">
+                            <input type="submit" class="btn btn-primary" value="お試しログイン">
+                        </form>    
+                    </div>
                 </div>                
             </div>            
         </div>
