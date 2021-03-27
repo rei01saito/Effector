@@ -52,7 +52,7 @@
                 <div class="card">
                     <div class="card-body">
                         @if(!empty($eff->image))
-                            <div class="image-wrapper"><img src="{{ asset('storage/images/'.$eff->image) }}"></div>
+                            <div class="image-wrapper"><img src="{{ $eff->image }}"></div>
                         @else
                             <div class="image-wrapper"><div class="no-image"><p>imgなし</p></div></div>
                         @endif
