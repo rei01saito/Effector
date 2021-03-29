@@ -34,7 +34,7 @@ class EffectorController extends Controller
             'name' => 'required',
             'image' => 'mimes:jpeg,png,jpg,webp|max:2048',// dimensions:width=320,height=240,
         ]);
-        dd($request->hasFile('image'));
+
         if($request->hasFile('image')) {
             $file = $request->file('image');
             $img = Image::make($file);
