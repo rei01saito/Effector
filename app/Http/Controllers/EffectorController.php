@@ -34,7 +34,7 @@ class EffectorController extends Controller
             'name' => 'required',
             'image' => 'mimes:jpeg,png,jpg,webp|max:2048',// dimensions:width=320,height=240,
         ]);
-
+        dd($request->hasFile('image'));
         if($request->hasFile('image')) {
             $file = $request->file('image');
             $img = Image::make($file);
@@ -42,7 +42,7 @@ class EffectorController extends Controller
                 $constraint->aspectRatio();
             });
             $img->save($file);
-            dd($file);
+            // dd($file);
             $path = Storage::disk('s3')->putFile('/', $file, 'public'); // S3に保存
             // dd($path);
             //  $file->store('public/images'); 本来はこれ。今回はストレージにs3を使うので変える。
