@@ -27,6 +27,7 @@ class EffectorController extends Controller
 
     public function store(Request $request)
     {
+        dd($request->hasFile('image'));
         $post = $request->all();
 
         //Validation
@@ -36,7 +37,6 @@ class EffectorController extends Controller
         ]);
 
         if($request->hasFile('image')) {
-
             $file = $request->file('image');
             $img = Image::make($file);
             $img->resize(200, null, function ($constraint) {
