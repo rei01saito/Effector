@@ -43,7 +43,7 @@ class EffectorController extends Controller
             });
             $img->save($file);
             // dd($file);
-            $path = Storage::disk('s3')->putFile('/', $file, 'public'); // S3に保存
+            $path = Storage::disk('s3')->putFile('', $file, 'public'); // S3に保存
             // dd($path);
             //  $file->store('public/images'); 本来はこれ。今回はストレージにs3を使うので変える。
 
