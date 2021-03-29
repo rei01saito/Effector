@@ -43,8 +43,9 @@ class EffectorController extends Controller
                 $constraint->aspectRatio();
             });
             $img->save($file);
+            dd($file);
             $path = Storage::disk('s3')->putFile('/', $file, 'public'); // S3に保存
-            dd($path);
+            // dd($path);
             //  $file->store('public/images'); 本来はこれ。今回はストレージにs3を使うので変える。
 
             $data = ['user_id'=>\Auth::id(), 'name'=>$post['name'],
