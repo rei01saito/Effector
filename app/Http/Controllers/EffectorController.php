@@ -27,7 +27,7 @@ class EffectorController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->hasFile('image'));
+        ddd($request->hasFile('image'));
         $post = $request->all();
 
         //Validation
